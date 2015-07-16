@@ -1,0 +1,15 @@
+[%- USE EncodeUTF8 -%]
+[%- FILTER csv = replace('"', '\"') %][% END -%]
+biblionumber, barcode, callnumber, title, current location, item type, date last borrowed, date last seen, times used
+[% FOREACH i IN items %]
+[%- '"' %][% i.biblio.biblionumber | csv %][% '",' -%]
+[%- '"' %][% i.barcode | csv %][% '",' -%]
+[%- '"' %][% i.itemcallnumber | csv %][% '",' -%]
+[%- '"' %][% i.biblio.title | csv | $EncodeUTF8 %][% '",' -%]
+[%- '"' %][% i.location %][% '",' -%]
+[%- '"' %][% i.itype %][% '",' -%]
+[%- '"' %][% i.datelastborrowed %][% '",' -%]
+[%- '"' %][% i.datelastseen %][% '",' -%]
+[%- '"' %][% i.issues %][% '",' -%]
+
+[% END %]

@@ -1,0 +1,45 @@
+[% INCLUDE 'doc-head-open.inc' %]
+ <title>Koha: Records by Biblionumber: List of Titles</title>
+[% INCLUDE 'doc-head-close.inc' %]
+</head>
+<body>
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div id="breadcrumbs"><a href="/cgi-bin/koha/mainpage.pl">Home</a> &rsaquo; <a href="/cgi-bin/koha/plugins/plugins-home.pl">Plugins</a> &rsaquo; Usage by Barcodes</div>
+
+<div id="doc3">
+
+<table class="table table-striped">
+  <thead>
+    <tr> 
+      <th>Biblionumber</th>
+      <th>Barcode</th>
+      <th>Callnumber</th>
+      <th>Title</th>  
+      <th>Location</th>
+      <th>Item Type</th>
+      <th>Date Last Borrowed</th>
+      <th>Date Last Seen</th>
+      <th>Times Used</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    [% FOREACH i IN items %]
+      <tr>
+        <td>[% i.biblio.biblionumber %]</td>
+        <td>[% i.barcode %]</td>
+        <td>[% i.itemcallnumber %]</td>
+        <td><a href="/cgi-bin/koha/catalogue/detail.pl?biblionumber=[% i.biblio.biblionumber %]">[% i.biblio.title %]</a></td> 
+        <td>[% i.location %]</td>
+        <td>[% i.itype %]</td>
+        <td>[% i.datelastborrowed %]</td>
+        <td>[% i.datelastseen %]</td>
+        <td>[% i.issues %]</td>
+      </tr>
+    [% END %]
+  </tbody>
+</table> 
+
+[% INCLUDE 'intranet-bottom.inc' %]

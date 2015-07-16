@@ -1,0 +1,45 @@
+[% INCLUDE 'doc-head-open.inc' %]
+ <title>Koha: Plugins: Report: Usage by Barcodes</title>
+[% INCLUDE 'doc-head-close.inc' %]
+</head>
+<body>
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div id="breadcrumbs"><a href="/cgi-bin/koha/mainpage.pl">Home</a> &rsaquo; <a href="/cgi-bin/koha/plugins/plugins-home.pl">Plugins</a> &rsaquo; Usage by Barcodes &rsaquo; Enter barcodes</div>
+
+<div id="doc3">
+        <!-- Notice our form here has no 'action', this is good, it means that our forms will always get passed back to 'plugins/run.pl'. You could hard code it instead if you prefer -->
+    <form method="get" class="form-horizontal">
+       <fieldset>
+          <legend>Generate list of Titles and Usage Data</legend>
+
+           <input type="hidden" name="class" value="[% CLASS %]"/>
+           <input type="hidden" name="method" value="[% METHOD %]"/>
+           <div class="control-group">
+              <label class="control-lanel" for="barcodes">Item Barcode(s):</label>
+              <div class="controls">
+                    <textarea name="barcodes" id="barcodes" rows="10" class="input-block-level"></textarea>
+                    <span class="hint help-block">Enter item barcodes separated by commas, tabs, or newlines</span>
+               </div>
+           </div>
+
+           <div class="control-group">
+              <label class="control-label" for="output">Output Data to:</label>
+              <div class="controls">
+                 <select name="output">
+                    <option value="screen">Screen</option>
+                    <option value="csv">CSV File</option>
+                 </select>
+              </div>
+           </div>
+          
+           <div class="control-group">
+              <div class="controls">
+                 <button type="submit" class="btn" value="Run Report">Run Report</button>
+              </div>
+           </div>
+        </fieldset>
+     </form>
+
+[% INCLUDE 'intranet-bottom.inc' %]
