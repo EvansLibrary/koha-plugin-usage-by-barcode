@@ -14,7 +14,7 @@ use C4::Auth;
 use Koha::Database;
 
 ## Here we set our plugin version
-our $VERSION = 1.0.0;
+our $VERSION = 1.00;
 
 ## Here is our metadata, some keys are required, some are optional
 our $metadata = {

@@ -22,6 +22,7 @@
       <th>Date Last Borrowed</th>
       <th>Date Last Seen</th>
       <th>Times Used</th>
+      <th>Public Note</th>
     </tr>
   </thead>
 
@@ -37,6 +38,7 @@
         <td>[% i.datelastborrowed %]</td>
         <td>[% i.datelastseen %]</td>
         <td>[% i.issues %]</td>
+        <td>[% i.itemnotes %]</td>
       </tr>
     [% END %]
   </tbody>
